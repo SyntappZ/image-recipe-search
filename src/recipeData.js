@@ -13,7 +13,7 @@ export function recipeData(searchQuery) {
 
     xhr.open(
       "GET",
-      `https://api.edamam.com/search?q=${searchQuery}&to=20`,
+      `https://api.edamam.com/search?q=${searchQuery}&to=20&${appId}&${apiKey}`,
       true
     );
     xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
@@ -35,3 +35,4 @@ export function recipeData(searchQuery) {
     xhr.send();
   });
 }
+

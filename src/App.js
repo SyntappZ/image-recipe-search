@@ -1,15 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
-import recipeData from './recipeData'
+import Footer from './components/Footer'
+import Welcome from './components/Welcome'
+
+
+
 import './App.css';
 
 function App() {
 
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-      <button className="btn" onClick={ uploadImage }>upload</button>
-      </header>
+      <Welcome />
+      <Footer />
+     
     </div>
   );
 }
