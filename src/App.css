@@ -1,45 +1,134 @@
-
 :root {
   --main-color: #09d3ac;
+  --black: #282c34;
+  --tint: rgba(0, 0, 0, 0.431);
 }
 
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+
 * {
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
 
 :focus {
-  outline:none;
+  outline: none;
 }
 
 .App {
   text-align: center;
+  background: url(./green-bg.svg);
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
 }
 
-
-
-.btn {
- padding:20px 30px;
-  background: var(--main-color);
-  cursor:pointer;
-  border:none;
-  border-radius:50px;
-  color:#333;
-  font-weight: bolder;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.App-header {
-  background-color: #282c34;
+.wrap {
+  width: 100%;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  background: var(--tint);
+}
+
+.upload-image {
+  width: 600px;
+
+  margin: auto;
   color: white;
 }
 
-.App-link {
-  color: var(--main-color)
+.title-wrap h1 {
+  color: var(--main-color);
+  letter-spacing: 1px;
+  font-weight: 100;
+  padding: 10px;
+  border-radius: 50px;
+  margin: 0 auto 10px auto;
+}
+.title-wrap p {
+  padding: 10px;
+
+  font-size: 20px;
+}
+.title-wrap i {
+  font-size: 50px;
+}
+
+.preloader-text {
+  letter-spacing: 1px;
+  font-weight: 100;
+  text-transform: capitalize;
+}
+
+.btn-wrap {
+  margin: 10px auto;
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+
+  box-sizing: content-box;
+}
+
+.btn {
+  width: 100px;
+  height: 100px;
+  background: var(--main-color);
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  color: var(--black);
+  font-weight: bolder;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+}
+.btn i {
+  padding-bottom: 10px;
+  font-size: 30px;
+}
+
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 -20px var(--main-color);
+  }
+  40% {
+    box-shadow: 0 0 30px var(--main-color);
+  }
+  60% {
+    box-shadow: 0 0 30px var(--main-color);
+  }
+  100% {
+    box-shadow: 0 0 -20px var(--main-color);
+  }
+}
+
+/* @keyframes pulse {
+  0% {
+    background: rgba(0, 0, 0, 0.829);
+  }
+  40% {
+    background: rgba(0, 0, 0, 0.274);
+
+  }
+  60% {
+    background: rgba(0, 0, 0, 0.274);
+
+
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.829);
+
+  }
+} */
+
+/* .background-pulse {
+  animation: pulse 5000ms infinite;
+
+} */
+
+.button-glow {
+  animation: glowing 5000ms infinite;
 }

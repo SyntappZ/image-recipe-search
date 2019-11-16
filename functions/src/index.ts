@@ -24,7 +24,7 @@ export const imageTagger = functions.storage
 
     const docRef = admin
       .firestore()
-      .collection("photos")
+      .collection("image-data")
       .doc(docId);
 
     const results = await visionClient.labelDetection(imageUri);
@@ -40,9 +40,9 @@ export const imageTagger = functions.storage
       const [webResult] = await visionClient.webDetection(imageUri);
       const webDetection = webResult.webDetection;
       const webResults = webDetection.webEntities.map(
-        (webEntity: { description: string }) => webEntity.description
+        (webEntity: { description: string }) => webEntity.description.toLowerCase()
       );
-      return docRef.set({ webResults, labels });
+      return docRef.set({ webResults });
     } else {
       return docRef.set({ webResults: "false" });
     }
