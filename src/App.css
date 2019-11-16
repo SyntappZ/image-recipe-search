@@ -60,6 +60,16 @@
   text-transform: capitalize;
 }
 
+.loader-container {
+  height:180px;
+  width:500px;
+  margin:auto;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 1px;
+}
+
 .btn-wrap {
   margin: 10px auto;
   width: 100px;

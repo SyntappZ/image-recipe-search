@@ -44,6 +44,6 @@ export const imageTagger = functions.storage
       );
       return docRef.set({ webResults });
     } else {
-      return docRef.set({ webResults: "false" });
+      return docRef.set({ webResults: null });
     }
   });

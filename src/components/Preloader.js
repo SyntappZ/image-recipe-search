@@ -5,16 +5,15 @@ import preLoader from '../preLoader.svg'
 class Preloader extends Component {
   constructor(props) {
     super(props);
-    
     this.state = {
-        showLoader: props.showLoader  
+       
     }
   }
   render() {
-    return this.state.showLoader && (
+    return(
        
         <div>
-          <h3 className="preloader-text">Searching for matching recipes.</h3>
+          <h3 className="preloader-text">Searching for recipes.</h3>
           <img src={preLoader}></img>
         </div>
       
