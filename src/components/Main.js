@@ -23,11 +23,11 @@ class Main extends React.Component {
 
   clickChangeInput = () => {
     const fileInput = document.getElementById("imageInput");
-    this.setState({ showCards: false });
     fileInput.click();
   };
 
   handleChange = event => {
+    this.setState({ showCards: false });
     const removeFromFoods = [
       "breakfast",
       "dinner",
@@ -61,7 +61,7 @@ class Main extends React.Component {
     const recipes = recipeData(this.state.visionFoodData);
 
     recipes.then(([data, title]) => {
-      console.log(title);
+      
       this.setState({
         showLoader: false,
         searchTitle: title,
@@ -86,7 +86,6 @@ class Main extends React.Component {
         var storageRef = storage.ref();
         var imageRef = storageRef.child(this.state.imageId);
         imageRef.delete();
-        console.log("image deleted from storage");
       });
   };
 
@@ -98,7 +97,7 @@ class Main extends React.Component {
       loader = <h3>This is not food!</h3>;
     } else if (this.state.showCards) {
       loader = <h3>Recipes found!</h3>;
-      title = <h1>{ `results for - ${this.state.searchTitle}`}</h1>
+      title = <h1>{this.state.searchTitle}</h1>
     } else {
       title = null;
       loader = null;
@@ -139,11 +138,12 @@ class Main extends React.Component {
             </div>
             <div className="loader-container">{loader}</div>
           </div>
-        </div>
-        <div className="recipe-title">
+          <div className="recipe-title">
          {title}
         </div>
         <div className="card-wrap">{cards}</div>
+        </div>
+      
       </div>
     );
   }

@@ -15,13 +15,14 @@ class Card extends React.Component {
     };
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.setState({
       title: this.props.recipe.label,
       image: this.props.recipe.image,
       calories: this.props.recipe.calories.toString().match(/\w+/)[0],
       source: this.props.recipe.source,
-      healthLabels: this.props.recipe.healthLabels
+      healthLabels: this.props.recipe.healthLabels,
+      url: this.props.recipe.url
     })
     
   }
@@ -40,14 +41,14 @@ class Card extends React.Component {
           <div className="image-wrap">
             <div className="image-cover">
               <div className="card-title">
-                <p>{title}</p>
+                <p>{this.state.source}</p>
               </div>
             </div>
             <img src={this.state.image} alt={this.state.title}></img>
           </div>
           <div className="card-info">
             <div className="info-text">
-              <h3>{this.state.source}</h3>
+              <h3>{title}</h3>
 
               <ul>
                 {healthLabels.map((value, index) => {
@@ -57,7 +58,7 @@ class Card extends React.Component {
               <p>calories: {this.state.calories}</p>
             </div>
             <div className="button-wrap">
-              <a href={this.state.url} target="_blank" rel="noopener noreferrer">
+              <a href={this.state.url} target="_blank"  rel="noopener noreferrer">
                 <div className="card-btn">recipe</div>
               </a>
             </div>

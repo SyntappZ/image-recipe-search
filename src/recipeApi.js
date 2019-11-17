@@ -7,7 +7,7 @@ export const recipeData = imageData => {
 
     const queryCheck = (searchQuery) => {
       const xhr = new XMLHttpRequest();
-      console.log(searchQuery)
+      
       xhr.open(
         "GET",
         `https://api.edamam.com/search?q=${searchQuery}&to=20&${appId}&${apiKey}`,
