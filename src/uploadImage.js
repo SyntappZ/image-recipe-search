@@ -14,12 +14,13 @@ export async function uploadImage(image) {
       complete: () => getFirestoreData()
     });
 
-    const getFirestoreData = async() => {
+    const getFirestoreData = () => {
      
     db.collection("image-data")
         .doc(docId)
         .onSnapshot(doc => {
           if(doc.exists) {
+           
          resolve([doc.data().webResults, docId])  
           }
         });

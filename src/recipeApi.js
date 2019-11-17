@@ -4,7 +4,7 @@ let count = 0
 
 export const recipeData = imageData => {
   return new Promise((resolve, reject) => {
-console.log(imageData)
+
     const queryCheck = (searchQuery) => {
       const xhr = new XMLHttpRequest();
       console.log(searchQuery)
@@ -25,13 +25,9 @@ console.log(imageData)
             return queryCheck(imageData[count])
           }else{
             count = 0;
-            resolve(recipes);
+            resolve([recipes, searchQuery]);
           }
          
-        }else{
-          //if status not 200 try next item
-          count++
-         return queryCheck(imageData[count])
         }
       };
   

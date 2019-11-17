@@ -2,9 +2,10 @@
   --main-color: #09d3ac;
   --black: #282c34;
   --tint: rgba(0, 0, 0, 0.431);
+  --main-darken: #176857;
 }
 
-@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Dancing+Script&display=swap");
 
 * {
   box-sizing: border-box;
@@ -19,20 +20,27 @@
   background: url(./green-bg.svg);
   min-height: 100vh;
   font-family: "Montserrat", sans-serif;
+  position: relative;
 }
+
+/* .cover {
+  position: absolute;
+  width:100%;
+  height:100vh;
+  background: var(--tint);
+  z-index: 0;
+} */
 
 .wrap {
   width: 100%;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background: var(--tint);
+
 }
 
 .upload-image {
   width: 600px;
-
+  padding-top:200px;
   margin: auto;
   color: white;
 }
@@ -61,12 +69,6 @@
 }
 
 .loader-container {
-  height:180px;
-  width:500px;
-  margin:auto;
-  display:flex;
-  justify-content: center;
-  align-items: center;
   letter-spacing: 1px;
 }
 
@@ -75,7 +77,6 @@
   width: 100px;
   height: 100px;
   padding: 20px;
-
   box-sizing: content-box;
 }
 
@@ -115,30 +116,157 @@
   }
 }
 
-/* @keyframes pulse {
-  0% {
-    background: rgba(0, 0, 0, 0.829);
-  }
-  40% {
-    background: rgba(0, 0, 0, 0.274);
-
-  }
-  60% {
-    background: rgba(0, 0, 0, 0.274);
-
-
-  }
-  100% {
-    background: rgba(0, 0, 0, 0.829);
-
-  }
-} */
-
-/* .background-pulse {
-  animation: pulse 5000ms infinite;
-
-} */
-
 .button-glow {
   animation: glowing 5000ms infinite;
+}
+
+.recipe-title {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--tint);
+}
+
+.recipe-title h1 {
+  margin: 0;
+  color: var(--main-color);
+  text-transform: capitalize;
+  font-size: 40px;
+  letter-spacing: 2px;
+  font-weight: 100;
+  padding:40px;
+}
+
+.card-wrap {
+  width: 100%;
+  padding: 40px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background: var(--tint);
+}
+.card {
+  width: 20vw;
+  height: 650px;
+  background: rgb(204, 204, 204);
+  outline: var(--main-color) 1px solid;
+  outline-offset: 20px;
+  margin:50px 0;
+}
+
+
+.image-wrap {
+  width: 100%;
+  height: 250px;
+  position: relative;
+}
+.image-cover {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--tint);
+   overflow: hidden;
+  
+}
+.image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-title {
+  position: absolute;
+  top:50px;
+  left:-10px;
+  padding:2px 30px;
+  background:var(--main-color);
+  transform:skewX(20deg);
+ 
+}
+.card-title p {
+  font-family: 'Dancing Script', cursive;
+  font-size:20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding:0;
+  margin:0;
+  transform:skewX(-20deg);
+}
+
+.card-info {
+  width:100%;
+  height: 400px;
+  background:var(--black);
+  
+
+}
+
+.info-text {
+  width:100%;
+  height: 250px;
+  padding:20px;
+  border-top:solid var(--main-darken) 20px;
+  text-align:left;
+  color:rgb(153, 153, 153);
+  letter-spacing: 1px;
+  font-weight: 100;
+  position: relative;
+
+}
+
+.info-text li {
+  padding:3px 0;
+  font-size:14px;
+}
+.info-text p {
+  position: absolute;
+  bottom: 0;
+}
+
+.info-text h3 {
+  
+  text-transform: capitalize;
+  color: var(--main-darken)
+}
+.button-wrap {
+  height:150px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-btn {
+  padding:10px 30px;
+  border: solid  2px var(--main-color);
+  border-radius: 50px;
+  font-weight: bolder;
+  letter-spacing: 1px;
+  color:var(--main-color);
+  text-transform: capitalize;
+  transition: .3s;
+  cursor:pointer;
+}
+
+.card-btn:hover{
+  color:var(--black);
+  background: var(--main-color);
+}
+
+@media (max-width: 1600px) {
+  .card {
+    width:25vw;
+  }
+}
+@media (max-width: 1200px) {
+  .card {
+    width:40vw;
+  }
+}
+@media (max-width: 600px) {
+  .card {
+    width:90%;
+  }
 }

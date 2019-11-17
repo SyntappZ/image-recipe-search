@@ -14,7 +14,7 @@ class Preloader extends Component {
        
         <div>
           <h3 className="preloader-text">Searching for recipes.</h3>
-          <img src={preLoader}></img>
+          <img src={preLoader} alt="pre loader"></img>
         </div>
       
     );
