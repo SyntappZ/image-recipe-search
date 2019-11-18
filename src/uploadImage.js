@@ -11,6 +11,7 @@ export async function uploadImage(image) {
       .put(image);
 
     uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, {
+      error: (err) => reject(err),
       complete: () => getFirestoreData()
     });
 

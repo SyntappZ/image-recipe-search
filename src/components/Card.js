@@ -6,31 +6,21 @@ class Card extends React.Component {
     super(props);
 
     this.state = {
-      title: null,
-      image: null,
-      calories: null,
-      url: null,
-      source: null,
-      healthLabels: []
-    };
-  }
-
-  UNSAFE_componentWillMount() {
-    this.setState({
       title: this.props.recipe.label,
       image: this.props.recipe.image,
       calories: this.props.recipe.calories.toString().match(/\w+/)[0],
       source: this.props.recipe.source,
       healthLabels: this.props.recipe.healthLabels,
       url: this.props.recipe.url
-    })
-    
+    };
   }
 
 
+
   render() {
-    let healthLabels = this.state.healthLabels;
+    // let healthLabels = this.state.healthLabels;
     let title = this.state.title
+    const { healthLabels } = this.state
     if(title.length > 27) {
       title = title.split(' ').slice(0, 3).join(' ') + '...'
     }

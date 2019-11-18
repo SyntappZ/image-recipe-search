@@ -82,12 +82,8 @@ class Main extends React.Component {
       .delete()
       .then(() => {
         console.log('removed image from bucket')
-
         //delete image from storage bucket
-        var storage = firebase.storage();
-        var storageRef = storage.ref();
-        var imageRef = storageRef.child(this.state.imageId);
-        imageRef.delete();
+        firebase.storage().ref().child(this.state.imageId).delete();
       });
   };
 
