@@ -61,7 +61,6 @@ class Main extends React.Component {
     const recipes = recipeData(this.state.visionFoodData);
 
     recipes.then(([data, title]) => {
-      
       this.setState({
         showLoader: false,
         searchTitle: title,
@@ -75,15 +74,19 @@ class Main extends React.Component {
 
   removeImageFromDB = () => {
     const db = firebase.firestore();
-    console.log('deleted data from database')
+    console.log("deleted data from database");
     //delete data from database
     db.collection("image-data")
       .doc(this.state.imageId)
       .delete()
       .then(() => {
-        console.log('removed image from bucket')
+        console.log("removed image from bucket");
         //delete image from storage bucket
-        firebase.storage().ref().child(this.state.imageId).delete();
+        firebase
+          .storage()
+          .ref()
+          .child(this.state.imageId)
+          .delete();
       });
   };
 
@@ -95,12 +98,11 @@ class Main extends React.Component {
       loader = <h3>This is not food!</h3>;
     } else if (this.state.showCards) {
       loader = <h3>Recipes found!</h3>;
-      title = <h1>{this.state.searchTitle}</h1>
+      title = <h1>{this.state.searchTitle}</h1>;
     } else {
       title = null;
       loader = null;
     }
-    
 
     let cards;
     if (this.state.showCards) {
@@ -136,12 +138,9 @@ class Main extends React.Component {
             </div>
             <div className="loader-container">{loader}</div>
           </div>
-          <div className="recipe-title">
-         {title}
+          <div className="recipe-title">{title}</div>
+          <div className="card-wrap">{cards}</div>
         </div>
-        <div className="card-wrap">{cards}</div>
-        </div>
-      
       </div>
     );
   }

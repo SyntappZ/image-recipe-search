@@ -1,6 +1,5 @@
 import React from "react";
 
-
 class Card extends React.Component {
   constructor(props) {
     super(props);
@@ -15,15 +14,10 @@ class Card extends React.Component {
     };
   }
 
-
-
   render() {
-    // let healthLabels = this.state.healthLabels;
-    let title = this.state.title
-    const { healthLabels } = this.state
-    if(title.length > 27) {
-      title = title.split(' ').slice(0, 3).join(' ') + '...'
-    }
+    let title = this.state.title;
+    const { healthLabels } = this.state;
+
     healthLabels.length = 5;
     return (
       <div>
@@ -48,7 +42,11 @@ class Card extends React.Component {
               <p>calories: {this.state.calories}</p>
             </div>
             <div className="button-wrap">
-              <a href={this.state.url} target="_blank"  rel="noopener noreferrer">
+              <a
+                href={this.state.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <div className="card-btn">recipe</div>
               </a>
             </div>

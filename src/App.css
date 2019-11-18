@@ -32,12 +32,11 @@ h3 {
   width: 100%;
   min-height: 100vh;
   background: var(--tint);
-
 }
 
 .upload-image {
   width: 600px;
-  padding-top:200px;
+  padding-top: 200px;
   margin: auto;
   color: white;
 }
@@ -123,7 +122,6 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 .recipe-title h1 {
@@ -133,7 +131,7 @@ h3 {
   font-size: 40px;
   letter-spacing: 2px;
   font-weight: 100;
-  padding:40px;
+  padding: 40px;
 }
 
 .card-wrap {
@@ -142,7 +140,6 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
- 
 }
 .card {
   width: 20vw;
@@ -150,9 +147,8 @@ h3 {
   background: rgb(204, 204, 204);
   outline: var(--main-color) 1px solid;
   outline-offset: 20px;
-  margin:50px 0;
+  margin: 50px 0;
 }
-
 
 .image-wrap {
   width: 100%;
@@ -166,8 +162,7 @@ h3 {
   top: 0;
   left: 0;
   background: var(--tint);
-   overflow: hidden;
-  
+  overflow: hidden;
 }
 .image-wrap img {
   width: 100%;
@@ -177,49 +172,43 @@ h3 {
 
 .card-title {
   position: absolute;
-  top:50px;
-  left:-10px;
-  padding:2px 30px;
-  background:var(--main-color);
-  transform:skewX(20deg);
- 
+  top: 50px;
+  left: -10px;
+  padding: 2px 30px;
+  background: var(--main-color);
+  transform: skewX(20deg);
 }
 .card-title p {
-  font-family: 'Dancing Script', cursive;
-  font-size:20px;
+  font-family: "Dancing Script", cursive;
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: 1px;
-  padding:0;
-  margin:0;
-  transform:skewX(-20deg);
+  padding: 0;
+  margin: 0;
+  transform: skewX(-20deg);
 }
 
 .card-info {
-  width:100%;
+  width: 100%;
   height: 430px;
-  background:var(--black);
-  
-
+  background: var(--black);
 }
 
-
-
 .info-text {
-  width:100%;
+  width: 100%;
   height: 280px;
-  padding:20px;
-  border-top:solid var(--main-darken) 20px;
-  text-align:left;
-  color:rgb(153, 153, 153);
+  padding: 20px;
+  border-top: solid var(--main-darken) 20px;
+  text-align: left;
+  color: rgb(153, 153, 153);
   letter-spacing: 1px;
   font-weight: 100;
   position: relative;
-
 }
 
 .info-text li {
-  padding:3px 0;
-  font-size:14px;
+  padding: 3px 0;
+  font-size: 14px;
 }
 .info-text p {
   position: absolute;
@@ -228,11 +217,11 @@ h3 {
 
 .info-text h3 {
   text-transform: capitalize;
-  color: var(--main-darken)
+  color: var(--main-darken);
 }
 .button-wrap {
-  height:150px;
-  display:flex;
+  height: 150px;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -240,34 +229,34 @@ h3 {
   text-decoration: none;
 }
 .card-btn {
-  padding:10px 30px;
-  border: solid  2px var(--main-color);
+  padding: 10px 30px;
+  border: solid 2px var(--main-color);
   border-radius: 50px;
   font-weight: bolder;
   letter-spacing: 1px;
-  color:var(--main-color);
+  color: var(--main-color);
   text-transform: capitalize;
-  transition: .3s;
-  cursor:pointer;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
-.card-btn:hover{
-  color:var(--black);
+.card-btn:hover {
+  color: var(--black);
   background: var(--main-color);
 }
 
 @media (max-width: 1600px) {
   .card {
-    width:25vw;
+    width: 25vw;
   }
 }
 @media (max-width: 1200px) {
   .card {
-    width:40vw;
+    width: 40vw;
   }
 }
 @media (max-width: 600px) {
   .card {
-    width:90%;
+    width: 90%;
   }
 }

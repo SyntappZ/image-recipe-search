@@ -3,12 +3,10 @@ import * as admin from "firebase-admin";
 
 admin.initializeApp();
 
-
 const vision = require("@google-cloud/vision");
 
 const visionClient = new vision.ImageAnnotatorClient();
 
-// Dedicated bucket for cloud function invocation
 const bucketName = "vision-camera-bucket";
 
 export const imageTagger = functions.storage
@@ -34,13 +32,13 @@ export const imageTagger = functions.storage
     );
     const food = labels.includes("Food");
 
-
     //if labels have food check web detection results
     if (food) {
       const [webResult] = await visionClient.webDetection(imageUri);
       const webDetection = webResult.webDetection;
       const webResults = webDetection.webEntities.map(
-        (webEntity: { description: string }) => webEntity.description.toLowerCase()
+        (webEntity: { description: string }) =>
+          webEntity.description.toLowerCase()
       );
       return docRef.set({ webResults });
     } else {
