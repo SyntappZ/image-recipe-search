@@ -75,12 +75,14 @@ class Main extends React.Component {
 
   removeImageFromDB = () => {
     const db = firebase.firestore();
-
+    console.log('deleted data from database')
     //delete data from database
     db.collection("image-data")
       .doc(this.state.imageId)
       .delete()
       .then(() => {
+        console.log('removed image from bucket')
+
         //delete image from storage bucket
         var storage = firebase.storage();
         var storageRef = storage.ref();

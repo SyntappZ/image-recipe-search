@@ -5,7 +5,7 @@ admin.initializeApp();
 
 
 const vision = require("@google-cloud/vision");
-//import * as vision from "@google-cloud/vision"
+
 const visionClient = new vision.ImageAnnotatorClient();
 
 // Dedicated bucket for cloud function invocation
