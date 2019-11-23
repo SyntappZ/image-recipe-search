@@ -95,7 +95,7 @@ class Main extends React.Component {
     if (this.state.showLoader) {
       loader = <Preloader />;
     } else if (!this.state.isFood) {
-      loader = <h3>This is not food!</h3>;
+      loader = <h3>I do not recognise this food!</h3>;
     } else if (this.state.showCards) {
       loader = <h3>Recipes found!</h3>;
       title = <h1>{this.state.searchTitle}</h1>;

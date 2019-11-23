@@ -15,7 +15,7 @@ class Card extends React.Component {
   }
 
   render() {
-    let title = this.state.title;
+    const { title } = this.state
     const { healthLabels } = this.state;
 
     healthLabels.length = 5;
@@ -28,7 +28,7 @@ class Card extends React.Component {
                 <p>{this.state.source}</p>
               </div>
             </div>
-            <img src={this.state.image} alt={this.state.title}></img>
+            <img src={this.state.image} alt={title}></img>
           </div>
           <div className="card-info">
             <div className="info-text">
