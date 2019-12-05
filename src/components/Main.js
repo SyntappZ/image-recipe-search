@@ -20,11 +20,10 @@ class Main extends React.Component {
       showCards: false
     };
   }
-  componentDidMount() {
-    console.log(location.hostname)
-  }
+ 
 
   clickChangeInput = () => {
+    console.log(window.location.hostname)
     const fileInput = document.getElementById("imageInput");
     fileInput.click();
   };
