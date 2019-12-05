@@ -23,7 +23,6 @@ class Main extends React.Component {
  
 
   clickChangeInput = () => {
-    console.log(window.location.hostname)
     const fileInput = document.getElementById("imageInput");
     fileInput.click();
   };
