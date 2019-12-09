@@ -20,6 +20,7 @@ class Main extends React.Component {
       showCards: false
     };
   }
+ 
 
   clickChangeInput = () => {
     const fileInput = document.getElementById("imageInput");
