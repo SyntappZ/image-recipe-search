@@ -4,19 +4,13 @@ class Card extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      title: this.props.recipe.label,
-      image: this.props.recipe.image,
-      calories: this.props.recipe.calories.toString().match(/\w+/)[0],
-      source: this.props.recipe.source,
-      healthLabels: this.props.recipe.healthLabels,
-      url: this.props.recipe.url
-    };
   }
 
   render() {
-    const { title } = this.state
-    const { healthLabels } = this.state;
+
+    const { healthLabels, label, image, source, url, calories } = this.props.recipe;
+ 
+    const title = label.length < 23 ? label : label.slice(0, 23) + '...'
 
     healthLabels.length = 5;
     return (
@@ -25,10 +19,10 @@ class Card extends React.Component {
           <div className="image-wrap">
             <div className="image-cover">
               <div className="card-title">
-                <p>{this.state.source}</p>
+                <p>{source}</p>
               </div>
             </div>
-            <img src={this.state.image} alt={title}></img>
+            <img src={image} alt={title}></img>
           </div>
           <div className="card-info">
             <div className="info-text">
@@ -39,11 +33,11 @@ class Card extends React.Component {
                   return <li key={index}>{value}</li>;
                 })}
               </ul>
-              <p>calories: {this.state.calories}</p>
+              <p>calories: {calories.toString().match(/\w+/)[0]}</p>
             </div>
             <div className="button-wrap">
               <a
-                href={this.state.url}
+                href={url}
                 target="_blank"
                 rel="noopener noreferrer"
               >
