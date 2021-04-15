@@ -18,7 +18,7 @@ class Main extends React.Component {
       showLoader: false,
       isFood: true,
       showCards: false,
-      foodImage: null
+      foodImage: null,
     };
   }
 
@@ -44,12 +44,11 @@ class Main extends React.Component {
       "temple emanu-el",
     ];
     const image = event.target.files[0];
-    
-    this.setState({ showLoader: true,  foodImage:URL.createObjectURL(image) });
+
+    this.setState({ showLoader: true, foodImage: URL.createObjectURL(image) });
     const upload = uploadImage(image);
 
     upload.then(([data, docId]) => {
-     
       if (data) {
         data = data.filter((food) => !removeFromFoods.includes(food));
         this.setState({ visionFoodData: data, imageId: docId, isFood: true });
@@ -69,7 +68,7 @@ class Main extends React.Component {
         searchTitle: title,
         searchData: data,
         showCards: true,
-        foodImage: null
+        foodImage: null,
       });
 
       this.removeImageFromDB();

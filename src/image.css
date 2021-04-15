@@ -1,40 +1,38 @@
 .search-image-wrap {
-   
-   position: relative;
-    width: 100%;
-    border: solid 7px var(--main-color);
-    border-radius: 10px;
+  position: relative;
+  width: 100%;
+  border: solid 7px var(--main-color);
+  border-radius: 10px;
 }
 
 .search-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 3px;
-    display: block;
-  
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 3px;
+  display: block;
 }
 
 .scanner-line {
-    width: 100%;
-    height: 4px;
-    background-color: var(--main-color);
-    box-shadow: -1px -4px 38px 7px var(--main-color);
-    position: absolute;
-    animation: scanning 2500ms infinite;
-    top: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--main-color);
+  box-shadow: -1px -4px 38px 7px var(--main-color);
+  position: absolute;
+  animation: scanning 2500ms infinite;
+  top: 0;
 }
 
 @keyframes scanning {
-    0% {
-        top: 0;
-    }
-  
-    50% {
-      top: 100%;
-    }
-   
-    100% {
-        top: 0;
-    }
+  0% {
+    top: 0;
   }
+
+  50% {
+    top: 100%;
+  }
+
+  100% {
+    top: 0;
+  }
+}
