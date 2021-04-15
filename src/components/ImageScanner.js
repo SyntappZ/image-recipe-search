@@ -5,7 +5,7 @@ const ImageScanner = ({ image }) => {
     <div>
       <div className="search-image-wrap">
           <div className="scanner-line"></div>
-        <img src={image} alt="image" className="search-image" />
+        <img src={image} alt="food" className="search-image" />
       </div>
     </div>
   );
