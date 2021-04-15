@@ -119,7 +119,7 @@ class Main extends React.Component {
           <div className="upload-image">
             <div className="title-wrap">
               <h1>Image Recipe Search</h1>
-              <p>{foodImage ? 'Searching for Recipes...' : 'Upload an image of food.'}</p>
+              <p>{foodImage ? 'Scanning Image...' : 'Upload an image of food.'}</p>
             </div>
             {foodImage ? (
               <ImageScanner image={foodImage} />

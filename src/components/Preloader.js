@@ -9,7 +9,7 @@ class Preloader extends Component {
   render() {
     return (
       <div>
-        <h3 className="preloader-text">Scanning Image...</h3>
+        <h3 className="preloader-text">Searching for Recipes...</h3>
         <img src={preLoader} alt="pre loader"></img>
       </div>
     );
