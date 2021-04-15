@@ -4,7 +4,7 @@ import Preloader from "./Preloader";
 import firebase from "../firebaseConfig";
 import { recipeData } from "../recipeApi.js";
 import { uploadImage } from "../uploadImage.js";
-
+import ImageScanner from "./ImageScanner";
 class Main extends React.Component {
   constructor(props) {
     super(props);
@@ -17,17 +17,17 @@ class Main extends React.Component {
       imageId: null,
       showLoader: false,
       isFood: true,
-      showCards: false
+      showCards: false,
+      foodImage: null
     };
   }
- 
 
   clickChangeInput = () => {
     const fileInput = document.getElementById("imageInput");
     fileInput.click();
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({ showCards: false });
     const removeFromFoods = [
       "breakfast",
@@ -41,15 +41,17 @@ class Main extends React.Component {
       "meal",
       "cooking",
       "diner",
-      "temple emanu-el"
+      "temple emanu-el",
     ];
     const image = event.target.files[0];
-    this.setState({ showLoader: true });
+    
+    this.setState({ showLoader: true,  foodImage:URL.createObjectURL(image) });
     const upload = uploadImage(image);
 
     upload.then(([data, docId]) => {
+     
       if (data) {
-        data = data.filter(food => !removeFromFoods.includes(food));
+        data = data.filter((food) => !removeFromFoods.includes(food));
         this.setState({ visionFoodData: data, imageId: docId, isFood: true });
         this.getRecipes();
       } else {
@@ -66,7 +68,8 @@ class Main extends React.Component {
         showLoader: false,
         searchTitle: title,
         searchData: data,
-        showCards: true
+        showCards: true,
+        foodImage: null
       });
 
       this.removeImageFromDB();
@@ -83,17 +86,14 @@ class Main extends React.Component {
       .then(() => {
         console.log("removed image from bucket");
         //delete image from storage bucket
-        firebase
-          .storage()
-          .ref()
-          .child(this.state.imageId)
-          .delete();
+        firebase.storage().ref().child(this.state.imageId).delete();
       });
   };
 
   render() {
     let loader, title;
-    if (this.state.showLoader) {
+    const { showLoader, foodImage } = this.state;
+    if (showLoader) {
       loader = <Preloader />;
     } else if (!this.state.isFood) {
       loader = <h3>I do not recognise this food!</h3>;
@@ -122,21 +122,28 @@ class Main extends React.Component {
               <h1>Image Recipe Search</h1>
               <p>Upload an image of food.</p>
             </div>
-            <input
-              type="file"
-              id="imageInput"
-              onChange={this.handleChange}
-              hidden="hidden"
-            ></input>
-            <div className="btn-wrap">
-              <button
-                className="btn button-glow"
-                onClick={this.clickChangeInput}
-              >
-                upload
-                <i className="fas fa-upload"></i>
-              </button>
-            </div>
+            {foodImage ? (
+              <ImageScanner image={foodImage} />
+            ) : (
+              <div>
+                <input
+                  type="file"
+                  id="imageInput"
+                  onChange={this.handleChange}
+                  hidden="hidden"
+                ></input>
+                <div className="btn-wrap">
+                  <button
+                    className="btn button-glow"
+                    onClick={this.clickChangeInput}
+                  >
+                    upload
+                    <i className="fas fa-upload"></i>
+                  </button>
+                </div>
+              </div>
+            )}
+
             <div className="loader-container">{loader}</div>
           </div>
           <div className="recipe-title">{title}</div>
